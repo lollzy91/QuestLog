@@ -29,6 +29,13 @@ public class JdbcQuestDao implements QuestDao{
         }
         return activeQuests;
     }
+    @Override
+    public void addQuest(Quest newQuest){
+        String sql = "INSERT INTO quests (user_id, repeat, quest_name, description, completion_date)" +
+                " VALUES (?,?,?,?,?);";
+        jdbcTemplate.update(sql,newQuest.getUserId(), newQuest.getRepeatType(), newQuest.getQuestName(),
+                newQuest.getQuestDescription(), newQuest.getCompletionDate());
+    }
 
     private Quest mapRowToQuest(SqlRowSet results){
         Quest quest = new Quest();

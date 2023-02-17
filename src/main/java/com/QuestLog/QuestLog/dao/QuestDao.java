@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface QuestDao {
     List<Quest> viewActiveQuests(long userId);
+    void addQuest(Quest newQuest);
 
 }

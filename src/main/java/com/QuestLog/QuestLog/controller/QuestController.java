@@ -4,10 +4,7 @@ import com.QuestLog.QuestLog.dao.QuestDao;
 import com.QuestLog.QuestLog.model.Quest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -26,5 +23,9 @@ public class QuestController {
     @RequestMapping(path = "/active/{userId}", method = RequestMethod.GET)
     public List<Quest> viewActiveQuests(@PathVariable("userId") long userId){
         return questDao.viewActiveQuests(userId);
+    }
+    @RequestMapping(path = "/newQuest", method = RequestMethod.POST)
+    public void addQuest(@RequestBody Quest newQuest){
+        questDao.addQuest(newQuest);
     }
 }
