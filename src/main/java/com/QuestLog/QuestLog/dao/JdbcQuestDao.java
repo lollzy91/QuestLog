@@ -5,11 +5,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import com.QuestLog.QuestLog.model.Quest;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class JdbcQuestDao implements QuestDao{
     private JdbcTemplate jdbcTemplate;
 
