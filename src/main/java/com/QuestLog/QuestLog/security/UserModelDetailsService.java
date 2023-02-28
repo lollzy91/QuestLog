@@ -2,6 +2,8 @@ package com.QuestLog.QuestLog.security;
 
 
 
+import com.QuestLog.QuestLog.dao.UserDao;
+import com.QuestLog.QuestLog.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +20,7 @@ import java.util.stream.Collectors;
  * Authenticate a user from the database.
  */
 @Component("userDetailsService")
+@Service
 public class UserModelDetailsService implements UserDetailsService {
 
     private final Logger log = LoggerFactory.getLogger(UserModelDetailsService.class);

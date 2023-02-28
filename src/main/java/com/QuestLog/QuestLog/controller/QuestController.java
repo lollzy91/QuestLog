@@ -10,6 +10,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
+@PreAuthorize("isAuthenticated()")
 @RequestMapping(path = "/quests")
 public class QuestController {
 
