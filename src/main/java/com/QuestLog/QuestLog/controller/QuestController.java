@@ -21,9 +21,9 @@ public class QuestController {
         this.questDao = questDao;
     }
 
-    @RequestMapping(path = "/active/{userId}", method = RequestMethod.GET)
-    public List<Quest> viewActiveQuests(@PathVariable("userId") long userId){
-        return questDao.viewActiveQuests(userId);
+    @RequestMapping(path = "/active", method = RequestMethod.GET)
+    public List<Quest> viewActiveQuests(Principal principal){
+        return questDao.viewActiveQuests(principal.getName());
     }
     @RequestMapping(path = "/newQuest", method = RequestMethod.POST)
     public void addQuest(@RequestBody Quest newQuest){

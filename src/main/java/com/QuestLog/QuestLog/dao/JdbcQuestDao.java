@@ -19,11 +19,11 @@ public class JdbcQuestDao implements QuestDao{
     }
 
     @Override
-    public List<Quest> viewActiveQuests(long userId){
+    public List<Quest> viewActiveQuests(String username){
         List<Quest> activeQuests = new ArrayList<>();
         String sql = "SELECT * FROM quests " +
-                    "WHERE user_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+                    "WHERE user_id = (SELECT user_id FROM users WHERE username = ?)";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
         while (results.next()){
             activeQuests.add(mapRowToQuest(results));
         }

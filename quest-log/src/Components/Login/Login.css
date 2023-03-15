@@ -1,0 +1,23 @@
+form {
+    background-color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    color: cornsilk;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    width: max-content;
+    align-self: center;
+    justify-self: center;
+
+}
+
+#inputBox {
+    display: inline;
+    justify-content: space-between;
+}
+
+button {
+    width: 100px;
+    align-self: center;
+}
